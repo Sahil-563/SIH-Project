@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ececec;
+  padding: 30px 4em 0px 6em;
+  gap: 40px;
+  height: 100vh;
+}
+.txt-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+.img-container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.heading {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+}
+.glassmorphic-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 40px;
+}
+
+.glassmorphic-button {
+  width: 250px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: 0.3s ease-in-out;
+}
+
+.glassmorphic-button:hover {
+  transform: translateY(-5px);
+}
+
+.glassmorphic-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.glassmorphic-button span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #007e85;
+  backdrop-filter: blur(5px);
+  color: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+}
+@media (max-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 2em 30px 2em;
+    height: 100%;
+  }
+
+  .txt-container {
+    width: 100%;
+  }
+  .img-container {
+    display: none;
+  }
+  .glassmorphic-buttons {
+    display: flex;
+    justify-content: center;
+    row-gap: 20px;
+  }
+  .team-mention {
+    text-align: center;
+  }
+}

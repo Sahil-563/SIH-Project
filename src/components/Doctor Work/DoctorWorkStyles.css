@@ -1,0 +1,121 @@
+.MainContainer {
+  background-color: #f0f4f8;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.innerContainer {
+  display: flex;
+}
+.subContainer1 {
+  padding: 2rem 2rem 1rem 8rem;
+  width: 60%;
+}
+.subContainer2 {
+  display: flex;
+  justify-content: center;
+  padding: 6rem 6rem 1rem 2rem;
+  width: 40%;
+}
+.doctor-header {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  width: 800px;
+  height: 300px;
+  background: linear-gradient(-20deg, #037360 0%, #8ddad5 100%);
+  border-radius: 20px;
+}
+.visit-for-today {
+  margin-left: 20px;
+  width: 50%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+}
+.doc-img {
+  width: 50%;
+  height: 100%;
+}
+.doc-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.calender {
+}
+.custom-calendar {
+  width: 400px;
+  height: 300px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.react-calendar__tile--active {
+  background-color: #1da4ac !important;
+}
+
+.PatientList {
+  background-color: aliceblue;
+  height: 350px;
+  min-width: 1200px;
+  max-width: 1200px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.Table-container {
+  overflow-y: scroll;
+  width: 100%;
+  height: 70%;
+}
+.table {
+  width: 100%;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+th {
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: #dcedee;
+}
+.Table-container::-webkit-scrollbar {
+  width: 3px;
+  height: 10px;
+}
+
+.Table-container::-webkit-scrollbar-thumb {
+  background-color: #c9c9c9;
+  border-radius: 20px;
+  padding-top: 50px;
+}
+@media (max-width: 1024px) {
+  .MainContainer {
+    width: 1200px;
+  }
+  .innerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .subContainer1 {
+    width: 100%;
+    padding: 1rem;
+  }
+  .subContainer2 {
+    width: 100%;
+    padding: 1rem;
+  }
+}

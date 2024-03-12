@@ -1,0 +1,165 @@
+.morphic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 2);
+  border-radius: 10px;
+  margin-left: 40px;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #ececec;
+  height: 100vh;
+  background-image: url(../../assets/hospitalBg.jpg);
+  background-size: cover;
+}
+.text-container {
+  padding-left: 6em;
+  color: #000;
+}
+.head {
+  font-size: 60px;
+  font-weight: 900;
+  word-spacing: 30px;
+}
+.desp {
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 40px;
+}
+
+.from-wrapper {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.beautiful-form-container {
+  max-width: 400px;
+  max-height: 700px;
+  overflow-y: scroll;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 2);
+  border-radius: 18px;
+  background-color: #fff;
+}
+.beautiful-form-container::-webkit-scrollbar {
+  width: 8px;
+}
+.beautiful-form-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: black;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  height: 60px;
+}
+input,
+select::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+}
+select > option {
+  font-size: 16px;
+  font-weight: 400;
+}
+.btn-container {
+  text-align: center;
+  padding: 30px 5px 30px 5px;
+}
+.button-sup {
+  width: 200px;
+  background-color: #007e85;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+.button-sup:hover {
+  background-color: #006368;
+}
+.button {
+  width: 300px;
+  background-color: #007e85;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #006368;
+}
+.symptom-list {
+  border: 1px solid black;
+  height: 300px;
+  overflow-y: scroll;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.symptom-list > li {
+  list-style: none;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0.1, 0.1, 0.1, 0.1);
+}
+.symptom-item {
+  cursor: pointer;
+}
+.symptom-item:hover {
+  background-color: #eee;
+}
+@media (max-width: 1024px) {
+  .morphic {
+    display: none;
+  }
+  .from-wrapper {
+    height: none;
+    width: 100%;
+  }
+  .wrapper {
+    height: 100%;
+  }
+  .beautiful-form-container {
+    padding: 0px 20px 0px 20px;
+    max-height: 100%;
+    border-radius: 0px;
+    margin-top: 0px;
+  }
+}
