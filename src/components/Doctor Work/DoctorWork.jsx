@@ -25,7 +25,18 @@ function DoctorWork() {
       const response = await axios.get(
         "https://digitilize-pragun.onrender.com/server2/getdata"
       );
-      setAppointments(response.data.data);
+
+      const sortedAppointments = response.data.data.sort((a, b) => {
+        if (a.emergency === 1 && b.emergency === 0) {
+          return -1;
+        } else if (a.emergency === 0 && b.emergency === 1) {
+          return 1; // b should come before a
+        } else {
+          return 0;
+        }
+      });
+
+      setAppointments(sortedAppointments);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
