@@ -5,11 +5,11 @@ import SignUpImg from "../../assets/signIn.jpg";
 import "./DoctorPortalStyles.css";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import DoctorWork from "../Doctor Work/DoctorWork";
 
 function DoctorPortal() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
-  console.log(userData, "userData");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,7 +55,8 @@ function DoctorPortal() {
       ) {
         userFound = true;
         toast.success("Signed In Successfully");
-        navigate("/doctorWork");
+
+        navigate("/doctorWork", { state: { name: formData.name } });
       }
     });
 

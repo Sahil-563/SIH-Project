@@ -6,16 +6,28 @@ import "react-calendar/dist/Calendar.css";
 import axios from "axios";
 import docImage from "../../assets/doc-image.png";
 import { GoDotFill } from "react-icons/go";
-
+import { useLocation } from "react-router-dom";
 function DoctorWork() {
+  const location = useLocation();
+  const name = location.state?.name;
   const [Appointments, setAppointments] = useState(null);
   console.log(Appointments, "Appointments");
   const [date, setDate] = useState(new Date());
-
   const onChange = (date) => {
     setDate(date);
   };
-
+  const formatDate = (date) => {
+    const formattedDate = date
+      .toLocaleDateString("en-GB", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })
+      .split("/")
+      .reverse()
+      .join("-");
+    return formattedDate;
+  };
   function capitalizeFirstLetter(string) {
     return string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
   }
@@ -23,14 +35,16 @@ function DoctorWork() {
   const patientList = async () => {
     try {
       const response = await axios.get(
-        "https://digitilize-pragun.onrender.com/server2/getdata"
+        `https://digitilize-pragun.onrender.com/server2/getdata/${formatDate(
+          date
+        )}`
       );
 
       const sortedAppointments = response.data.data.sort((a, b) => {
         if (a.emergency === 1 && b.emergency === 0) {
           return -1;
         } else if (a.emergency === 0 && b.emergency === 1) {
-          return 1; // b should come before a
+          return 1;
         } else {
           return 0;
         }
@@ -44,7 +58,7 @@ function DoctorWork() {
 
   useEffect(() => {
     patientList();
-  }, []);
+  }, [date]);
 
   function extractTimeFromDate(dateString) {
     return dateString ? dateString.split("T")[1].substring(0, 5) : "";
@@ -68,7 +82,7 @@ function DoctorWork() {
                   fontWeight: "900",
                 }}
               >
-                {"Sahil!"}
+                {`${name}!`}
               </span>
             </h2>
             <div className="doctor-header">
@@ -76,7 +90,7 @@ function DoctorWork() {
                 <h2>
                   Visit for today
                   <p style={{ fontSize: "35px", paddingTop: "5px", color: "" }}>
-                    100
+                    {Appointments?.length}
                   </p>
                 </h2>
                 <h2 style={{ paddingTop: "15px" }}>
@@ -107,8 +121,8 @@ function DoctorWork() {
           <div className="table-header">
             <h2 style={{ padding: "20px" }}>Patient List </h2>
             <div className="emergency">
-              <GoDotFill style={{ color: "red" }} size={"30px"} />
               <h2>Emergency</h2>
+              <GoDotFill style={{ color: "red" }} size={"30px"} />
             </div>
           </div>
 
