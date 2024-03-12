@@ -74,7 +74,7 @@ function DoctorWork() {
         <div className="innerContainer">
           <div className="subContainer1">
             <h2>
-              Good Morning,{" "}
+              Welcome,{" "}
               <span
                 style={{
                   color: "#007E85",
@@ -174,7 +174,11 @@ function DoctorWork() {
                       <td>{singleAppointment.age}</td>
                       <td>{capitalizeFirstLetter(singleAppointment.sex)}</td>
                       <td>
-                        {extractTimeFromDate(singleAppointment.allocated_time)}
+                        {singleAppointment.allocated_time === null
+                          ? "will update soon..."
+                          : extractTimeFromDate(
+                              singleAppointment.allocated_time
+                            )}
                       </td>
                       <td>{capitalizeFirstLetter(singleAppointment.time)}</td>
                     </tr>
