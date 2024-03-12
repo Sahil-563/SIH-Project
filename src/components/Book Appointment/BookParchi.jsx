@@ -10,12 +10,10 @@ function BookParchi() {
   const [symptoms, setSymptoms] = useState([]);
   const [chosenDept, setChosenDept] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState();
-  const [selectedDepartment, setSelectedDepartment] = useState("");
   const [inputValues, setInputValues] = useState(["", "", "", ""]);
   const [matchedSymptoms, setMatchedSymptoms] = useState([]);
   const [focusedIndex, setFocusedIndex] = useState(null);
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
-  const [currentInput, setCurrentInput] = useState("");
   const [isWebViewOpen, setIsWebViewOpen] = useState(false);
 
   const handleButtonClick = () => {
@@ -33,7 +31,6 @@ function BookParchi() {
   });
   const [response, setResponse] = useState();
   const dataSent = async (e) => {
-    console.log(symptomList);
     try {
       const { data } = await axios.post(
         `https://digitilize-pragun.onrender.com/predict/deptt`,
@@ -178,6 +175,7 @@ function BookParchi() {
         formData,
         {}
       );
+      console.log(data, "data");
       toast.success("Slip Genrated Succefully");
     } catch (error) {
       toast.error("Cannot generate a Slip...Please fill all the fields");

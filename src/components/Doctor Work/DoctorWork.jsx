@@ -5,9 +5,11 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import axios from "axios";
 import docImage from "../../assets/doc-image.png";
+import { GoDotFill } from "react-icons/go";
 
 function DoctorWork() {
   const [Appointments, setAppointments] = useState(null);
+  console.log(Appointments, "Appointments");
   const [date, setDate] = useState(new Date());
 
   const onChange = (date) => {
@@ -91,7 +93,14 @@ function DoctorWork() {
         </div>
 
         <div className="PatientList">
-          <h2 style={{ padding: "20px" }}>Patient List</h2>
+          <div className="table-header">
+            <h2 style={{ padding: "20px" }}>Patient List </h2>
+            <div className="emergency">
+              <GoDotFill style={{ color: "red" }} size={"30px"} />
+              <h2>Emergency</h2>
+            </div>
+          </div>
+
           <div className="Table-container">
             <table className="table" style={{ minWidth: "100%" }}>
               <thead
@@ -108,7 +117,24 @@ function DoctorWork() {
               <tbody>
                 {Appointments?.map((singleAppointment, index) => (
                   <tr key={index}>
-                    <td>{capitalizeFirstLetter(singleAppointment.name)}</td>
+                    {singleAppointment.emergency === 0 ? (
+                      <td>{capitalizeFirstLetter(singleAppointment.name)}</td>
+                    ) : (
+                      <td>
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100%",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <GoDotFill style={{ color: "red" }} size={"25px"} />
+                          {capitalizeFirstLetter(singleAppointment.name)}
+                        </div>
+                      </td>
+                    )}
+
                     <td>{singleAppointment.age}</td>
                     <td>{capitalizeFirstLetter(singleAppointment.sex)}</td>
                     <td>

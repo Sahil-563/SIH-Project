@@ -17,7 +17,9 @@ function DoctorPortal() {
           "https://digitilize-pragun.onrender.com/get/status/doctor"
         );
         setUserData(res.data.data);
-      } catch (error) {}
+      } catch (error) {
+        toast.error("Internal Server Error");
+      }
     };
 
     fetchData();
