@@ -25,7 +25,7 @@ function GetDoctorsDetail() {
     fetchData();
     const interval = setInterval(() => {
       fetchData();
-    }, 100000);
+    }, 100000000);
     return () => clearInterval(interval);
   }, []);
 
