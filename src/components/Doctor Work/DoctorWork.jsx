@@ -127,49 +127,61 @@ function DoctorWork() {
           </div>
 
           <div className="Table-container">
-            <table className="table" style={{ minWidth: "100%" }}>
-              <thead
-                style={{ position: "sticky", top: 0, background: "aliceblue" }}
+            {Appointments?.length === 0 ? (
+              <h1
+                style={{ textAlign: "center", marginTop: "60px", color: "red" }}
               >
-                <tr>
-                  <th style={{ fontSize: "1.5em" }}>Name</th>
-                  <th style={{ fontSize: "1.5em" }}>Age(In Years)</th>
-                  <th style={{ fontSize: "1.5em" }}>Sex</th>
-                  <th style={{ fontSize: "1.5em" }}>Time</th>
-                  <th style={{ fontSize: "1.5em" }}>Session</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Appointments?.map((singleAppointment, index) => (
-                  <tr key={index}>
-                    {singleAppointment.emergency === 0 ? (
-                      <td>{capitalizeFirstLetter(singleAppointment.name)}</td>
-                    ) : (
-                      <td>
-                        <div
-                          style={{
-                            display: "flex",
-                            width: "100%",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
-                        >
-                          <GoDotFill style={{ color: "red" }} size={"25px"} />
-                          {capitalizeFirstLetter(singleAppointment.name)}
-                        </div>
-                      </td>
-                    )}
-
-                    <td>{singleAppointment.age}</td>
-                    <td>{capitalizeFirstLetter(singleAppointment.sex)}</td>
-                    <td>
-                      {extractTimeFromDate(singleAppointment.allocated_time)}
-                    </td>
-                    <td>{capitalizeFirstLetter(singleAppointment.time)}</td>
+                {`No Appointments on ${formatDate(date)}`}
+              </h1>
+            ) : (
+              <table className="table" style={{ minWidth: "100%" }}>
+                <thead
+                  style={{
+                    position: "sticky",
+                    top: 0,
+                    background: "aliceblue",
+                  }}
+                >
+                  <tr>
+                    <th style={{ fontSize: "1.5em" }}>Name</th>
+                    <th style={{ fontSize: "1.5em" }}>Age(In Years)</th>
+                    <th style={{ fontSize: "1.5em" }}>Sex</th>
+                    <th style={{ fontSize: "1.5em" }}>Time</th>
+                    <th style={{ fontSize: "1.5em" }}>Session</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {Appointments?.map((singleAppointment, index) => (
+                    <tr key={index}>
+                      {singleAppointment.emergency === 0 ? (
+                        <td>{capitalizeFirstLetter(singleAppointment.name)}</td>
+                      ) : (
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "100%",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <GoDotFill style={{ color: "red" }} size={"25px"} />
+                            {capitalizeFirstLetter(singleAppointment.name)}
+                          </div>
+                        </td>
+                      )}
+
+                      <td>{singleAppointment.age}</td>
+                      <td>{capitalizeFirstLetter(singleAppointment.sex)}</td>
+                      <td>
+                        {extractTimeFromDate(singleAppointment.allocated_time)}
+                      </td>
+                      <td>{capitalizeFirstLetter(singleAppointment.time)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
       </div>
