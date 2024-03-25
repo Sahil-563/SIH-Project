@@ -25,11 +25,10 @@ function GetDoctorsDetail() {
     fetchData();
     const interval = setInterval(() => {
       fetchData();
-    }, 100000000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  console.log(data, "data");
   return (
     <>
       <div className="background">
