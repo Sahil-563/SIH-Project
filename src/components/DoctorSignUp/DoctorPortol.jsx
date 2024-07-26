@@ -10,6 +10,7 @@ import DoctorWork from "../Doctor Work/DoctorWork";
 function DoctorPortal() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
+  console.log(userData, "userData");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -48,17 +49,13 @@ function DoctorPortal() {
     e.preventDefault();
 
     let userFound = false;
-    userData?.forEach((user) => {
-      if (
-        user.registration_id.toString() === formData.password &&
-        user.name === formData.name
-      ) {
-        userFound = true;
-        toast.success("Signed In Successfully");
 
-        navigate("/doctorWork", { state: { name: formData.name } });
-      }
-    });
+    if (formData.password === "1234") {
+      userFound = true;
+      toast.success("Signed In Successfully");
+
+      navigate("/doctorWork", { state: { name: formData.name } });
+    }
 
     if (!userFound) {
       toast.error("Invalid registration ID");
@@ -108,6 +105,7 @@ function DoctorPortal() {
                   )}
                 </button>
               </div>
+              <p style={{ marginTop: "12px" }}>Registration ID is:- 1234</p>
               <div className="btn-container">
                 <button type="submit" className="login-button">
                   Log In
